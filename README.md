@@ -27,6 +27,41 @@ Output: false
 Input: [1,1,2,2,3,3,4,4] , [1,1,2,2,5,5,4,4]
 Output: 6
 ```
+## Preparação de ambiente
+
+* Instalar Maven
+
+```bash
+sudo apt install maven -y
+```
+
+* Instalar JDK
+
+```bash
+sudo apt install openjdk-11-jdk
+```
+
+## Execução
+
+```bash
+cd Funcional2
+mvn clean generate-sources compile exec:java
+```
+
+* Applet
+
+```bash
+cd ..
+mvn package
+# Jar será gerado em ./Applet/target/
+```
+
+* Abrir Aplicação
+
+```bash
+# Acessar a pasta ./Applet/target/ e executar no terminal:
+java -jar Funcional2-0.0.1.jar
+```
 
 
 ***
