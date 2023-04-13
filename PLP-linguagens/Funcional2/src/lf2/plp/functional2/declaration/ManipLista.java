@@ -6,7 +6,7 @@ public class ManipLista {
         if (lista.size() <= 1) {
             return true;
         }
-          
+
         for (int i = 0; i < lista.size(); i++) {
             if (lista.get(i) != i + lista.get(0)) {
                 return false;
@@ -26,7 +26,13 @@ public class ManipLista {
     }
 
     public boolean contadorDeSimilares() {
-        
-        return false;
+        int count = 0;
+        int tamanho = Math.min(lista1.size(), lista2.size());
+        for (int i = 0; i < tamanho; i++) {
+            if (lista1.get(i).equals(lista2.get(i))) {
+                count++;
+            }
+        }
+        return count;   
     }
 }
