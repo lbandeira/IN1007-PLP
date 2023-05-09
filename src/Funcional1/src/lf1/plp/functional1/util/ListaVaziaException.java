@@ -9,6 +9,6 @@ public class ListaVaziaException extends RuntimeException {
 	 * lista vazia e eh invalido.
 	 */
 	public ListaVaziaException() {
-		super("N�o � poss�vel realizar a opera��o com lista vazia!");
+		super("Nao eh possivel realizar a operacao com lista vazia!");
 	}
 }
