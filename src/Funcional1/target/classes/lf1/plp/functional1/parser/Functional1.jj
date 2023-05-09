@@ -9,6 +9,7 @@ PARSER_BEGIN(Func1Parser)
 package lf1.plp.functional1.parser;
 import java.util.ArrayList;
 import java.util.List;
+
 import lf1.plp.functional1.*;
 import lf1.plp.functional1.declaration.DecVariavel;
 import lf1.plp.functional1.declaration.DeclaracaoFuncional;
@@ -33,6 +34,8 @@ import lf1.plp.expressions2.expression.Valor;
 import lf1.plp.expressions2.expression.ValorBooleano;
 import lf1.plp.expressions2.expression.ValorInteiro;
 import lf1.plp.expressions2.expression.ValorString;
+import lf1.plp.expressions2.expression.ValorLista;
+
 
 public class Func1Parser
 {
@@ -101,6 +104,11 @@ public class Func1Parser
         ValorBooleano valBool = (ValorBooleano) val;
         System.out.println("Funcional 1 PLP Parser Version 0.0.1: resultado=" + valBool.valor());
       }
+      else if (val instanceof ValorLista)
+      {
+        ValorBooleano valLista = (ValorLista) val;
+        System.out.println("Funcional 1 PLP Parser Version 0.0.1: resultado=" + valLista.valor());
+      }
     }
     catch (Exception e)
     {
@@ -167,6 +175,8 @@ TOKEN : /* TOKENS DE FUNCIONAL 1 */
 | < THEN : "then" >
 | < ELSE : "else" >
 | < FUNC : "fun" >
+| < HEAD : "head" >
+| < TAIL : "tail" >
 }
 
 TOKEN : /* LITERALS */
@@ -244,6 +254,9 @@ TOKEN : /* OPERATORS */
 | < BIT_OR : "|" >
 | < XOR : "^" >
 | < REM : "%" >
+| <EM_SEQ: "...">
+| <EM_PAR: "&&&">
+| <CHECK_SIMILAR: "???">
 }
 
 Programa Input() :
@@ -296,6 +309,36 @@ Valor PValorString() :
   }
 }
 
+Valor PValorLista() :
+{
+  Expressao v = null;
+  ValorLista vlista = null;
+}
+{
+  LOOKAHEAD(< LBRACKET > < RBRACKET >)
+  < LBRACKET > < RBRACKET >
+  {
+    return ValorLista.getInstancia(null, null);
+  }
+|
+  (
+    < LBRACKET > v = PExpressao()
+    {
+      vlista = ValorLista.getInstancia(v, null);
+    }
+    (
+      < COMMA > v = PExpressao()
+      {
+        vlista.cons(v);
+      }
+    )*
+    < RBRACKET >
+  )
+  {
+    return vlista.inverter();
+  }
+}
+
 Valor PValor() :
 {
   Valor retorno;
@@ -305,6 +348,7 @@ Valor PValor() :
     retorno = PValorInteiro()
   | retorno = PValorBooleano()
   | retorno = PValorString()
+  | retorno = PValorLista()
   )
   {
     return retorno;

@@ -27,6 +27,7 @@ import lf1.plp.expressions2.expression.Valor;
 import lf1.plp.expressions2.expression.ValorBooleano;
 import lf1.plp.expressions2.expression.ValorInteiro;
 import lf1.plp.expressions2.expression.ValorString;
+import lf1.plp.expressions2.expression.ValorLista;
 
 /** Token Manager. */
 @SuppressWarnings ("unused")

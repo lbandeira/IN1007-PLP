@@ -9,6 +9,7 @@ PARSER_BEGIN(Func1Parser)
 package lf1.plp.functional1.parser;
 import java.util.ArrayList;
 import java.util.List;
+
 import lf1.plp.functional1.*;
 import lf1.plp.functional1.declaration.DecVariavel;
 import lf1.plp.functional1.declaration.DeclaracaoFuncional;
@@ -33,6 +34,8 @@ import lf1.plp.expressions2.expression.Valor;
 import lf1.plp.expressions2.expression.ValorBooleano;
 import lf1.plp.expressions2.expression.ValorInteiro;
 import lf1.plp.expressions2.expression.ValorString;
+import lf1.plp.expressions2.expression.ValorLista;
+
 
 public class Func1Parser
 {
