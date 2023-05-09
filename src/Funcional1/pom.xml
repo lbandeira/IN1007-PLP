@@ -37,7 +37,9 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
         <configuration>
+        
           <mainClass>lf1.plp.functional1.parser.Func1Parser</mainClass>
+
           <commandlineArgs>input</commandlineArgs>
         </configuration>
       </plugin>

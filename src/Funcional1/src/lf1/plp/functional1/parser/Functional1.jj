@@ -254,9 +254,9 @@ TOKEN : /* OPERATORS */
 | < BIT_OR : "|" >
 | < XOR : "^" >
 | < REM : "%" >
-| <EM_SEQ: "...">
-| <EM_PAR: "&&&">
-| <CHECK_SIMILAR: "???">
+| < EM_SEQ: "...">
+| < EM_PAR: "&&&">
+| < CHECK_SIMILAR: "???">
 }
 
 Programa Input() :
