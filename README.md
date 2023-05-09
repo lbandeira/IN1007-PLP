@@ -27,6 +27,40 @@ Output: false
 Input: [1,1,2,2,3,3,4,4] , [1,1,2,2,5,5,4,4]
 Output: 6
 ```
+
+## BNF
+```
+Programa ::= Expressao
+
+Expressao ::= Valor | ExpUnaria | ExpBinaria | ExpDeclaracao | Id | Aplicacao | IfThenElse
+ 
+Valor ::= ValorConcreto 
+
+ValorConcreto ::= ValorInteiro | ValorBooleano | ValorString | ValorLista
+
+ExpUnaria ::= "-" Expressao | "not" Expressao | "length" Expressao | "estaEmSequencia" Expressao | "temParidade" Expressao
+
+ExpBinaria ::= Expressao "+" Expressao | Expressao "-" Expressao | Expressao "and" Expressao | Expressao "or" Expressao | Expressao "==" Expressao | Expressao "++" Expressao | Expressao "contaSimilares" Expressao
+
+ 
+ExpDeclaracao ::= "let" DeclaracaoFuncional "in" Expressao
+
+DeclaracaoFuncional ::= DecVariavel | DecFuncao | DecComposta
+
+DecVariavel ::= "var" Id "=" Expressao
+
+DecFuncao ::= "fun" ListId "=" Expressao
+
+DecComposta ::= DeclaracaoFuncional "," DeclaracaoFuncional
+
+ListId ::= Id  |  Id ListId
+
+Aplicacao:= Id"(" ListExp ")"
+
+ListExp ::= Expressao  |  Expressao, ListExp
+
+IfThenElse ::= "if" Expressao "then" Expressao "else" Expressao
+```
 ## Preparação de ambiente
 
 * Instalar Maven
@@ -63,6 +97,10 @@ mvn package
 java -jar Funcional2-0.0.1.jar
 ```
 
+java -cp ../../../../../../../javacc-7.0.10.jar javacc Functional1.jj
+
+mvn clean generate-sources compile exec:java
+mvn package
 
 ***
 ## Equipe
