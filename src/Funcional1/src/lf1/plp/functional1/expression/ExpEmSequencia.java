@@ -3,7 +3,6 @@ package lf1.plp.functional1.expression;
 import java.util.ArrayList;
 import java.util.List;
 
-import le1.plp.expressions1.expression.ValorBooleano;
 import lf1.plp.expressions1.util.Tipo;
 import lf1.plp.expressions2.expression.ExpUnaria;
 import lf1.plp.expressions2.expression.Expressao;
@@ -62,7 +61,7 @@ public class ExpEmSequencia extends ExpUnaria {
 				if (lista.isEmpty())
 					throw new ListaVaziaException();
 		
-				return lista.emSequencia();
+				return (Valor) lista.getHead();
 	}
 
 	/**
@@ -85,16 +84,16 @@ public class ExpEmSequencia extends ExpUnaria {
 		return tipoExp;
 	}
 
-	public boolean emSequencia(List<Integer> lista) {
+	public boolean ehSequencial(List<Integer> lista) {
 			if (lista.isEmpty()) {
 				return true;
 			}
 			
 			int primeiro = lista.get(0);
-			return emSequenciaAux(lista.subList(1, lista.size()), primeiro, 1);
+			return ehSequencialAux(lista.subList(1, lista.size()), primeiro, 1);
 		}
 		
-	private boolean emSequenciaAux(List<Integer> lista, int primeiro, int indice) {
+	private boolean ehSequencialAux(List<Integer> lista, int primeiro, int indice) {
 			if (lista.isEmpty()) {
 				return true;
 			}
@@ -104,7 +103,7 @@ public class ExpEmSequencia extends ExpUnaria {
 				return false;
 			}
 			
-			return emSequenciaAux(lista.subList(1, lista.size()), primeiro, indice + 1);
+			return ehSequencialAux(lista.subList(1, lista.size()), primeiro, indice + 1);
 		}
 	
 	public ExpEmSequencia clone() {
