@@ -61,6 +61,16 @@ ListExp ::= Expressao  |  Expressao, ListExp
 
 IfThenElse ::= "if" Expressao "then" Expressao "else" Expressao
 ```
+
+
+
+| < HEAD : "head" >
+| < TAIL : "tail" >
+
+| <EM_SEQ: "...">
+| <EM_PAR: "&&&">
+| <CHECK_SIMILAR: "???">
+
 ## Preparação de ambiente
 
 * Instalar Maven

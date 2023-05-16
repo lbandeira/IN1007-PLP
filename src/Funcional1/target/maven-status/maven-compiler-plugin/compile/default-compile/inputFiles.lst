@@ -4,6 +4,7 @@
 /Users/lbandeira/Documents/Workspace/PLP/IN1007-PLP/src/Funcional1/src/lf1/plp/expressions2/expression/ExpSoma.java
 /Users/lbandeira/Documents/Workspace/PLP/IN1007-PLP/src/Funcional1/src/lf1/plp/expressions2/memory/ContextoCompilacao.java
 /Users/lbandeira/Documents/Workspace/PLP/IN1007-PLP/src/Funcional1/src/lf1/plp/expressions2/expression/ExpBinaria.java
+/Users/lbandeira/Documents/Workspace/PLP/IN1007-PLP/src/Funcional1/src/lf1/plp/functional1/expression/ExpTemParidade.java
 /Users/lbandeira/Documents/Workspace/PLP/IN1007-PLP/src/Funcional1/src/lf1/plp/functional1/util/TipoLista.java
 /Users/lbandeira/Documents/Workspace/PLP/IN1007-PLP/src/Funcional1/src/lf1/plp/functional1/parser/TokenMgrError.java
 /Users/lbandeira/Documents/Workspace/PLP/IN1007-PLP/src/Funcional1/src/lf1/plp/functional1/declaration/DeclaracaoFuncional.java
@@ -16,6 +17,7 @@
 /Users/lbandeira/Documents/Workspace/PLP/IN1007-PLP/src/Funcional1/src/lf1/plp/expressions1/util/ToStringProvider.java
 /Users/lbandeira/Documents/Workspace/PLP/IN1007-PLP/src/Funcional1/src/lf1/plp/expressions2/expression/ValorInteiro.java
 /Users/lbandeira/Documents/Workspace/PLP/IN1007-PLP/src/Funcional1/src/lf1/plp/functional1/parser/Func1Parser.java
+/Users/lbandeira/Documents/Workspace/PLP/IN1007-PLP/src/Funcional1/src/lf1/plp/functional1/expression/ExpEmSequencia.java
 /Users/lbandeira/Documents/Workspace/PLP/IN1007-PLP/src/Funcional1/src/lf1/plp/expressions2/expression/ExpLength.java
 /Users/lbandeira/Documents/Workspace/PLP/IN1007-PLP/src/Funcional1/src/lf1/plp/expressions1/excecao/ErroTipoException.java
 /Users/lbandeira/Documents/Workspace/PLP/IN1007-PLP/src/Funcional1/src/lf1/plp/functional1/util/ListaVaziaException.java
