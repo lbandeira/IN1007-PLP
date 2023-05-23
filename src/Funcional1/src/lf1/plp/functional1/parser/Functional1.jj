@@ -20,6 +20,7 @@ import lf1.plp.functional1.expression.IfThenElse;
 import lf1.plp.functional1.expression.Aplicacao;
 import lf1.plp.functional1.expression.ExpEmSequencia;
 import lf1.plp.functional1.expression.ExpTemParidade;
+import lf1.plp.functional1.expression.ExpContagemSimilares;
 import java.util.*;
 import lf1.plp.expressions2.expression.ExpAnd;
 import lf1.plp.expressions2.expression.ExpConcat;
@@ -621,8 +622,6 @@ Expressao PExpUnaria() :
     retorno = PExpEmSequencia()
   | LOOKAHEAD(PExpTemParidade())
     retorno = PExpTemParidade()
-  | LOOKAHEAD(PExpContagemSimilares())
-    retorno = PExpContagemSimilares()
   )
   {
     //System.out.println("ExpressaoUnaria=" + retorno);
@@ -643,6 +642,8 @@ Expressao PExpBinaria() :
         retorno = new ExpEquals(retorno, param2);
       }
     )*
+    | LOOKAHEAD(PExpContagemSimilares())
+    retorno = PExpContagemSimilares()
   )
   {
     return retorno;
