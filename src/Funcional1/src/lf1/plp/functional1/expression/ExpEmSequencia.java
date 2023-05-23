@@ -3,6 +3,8 @@ package lf1.plp.functional1.expression;
 import java.util.ArrayList;
 import java.util.List;
 
+import lf1.plp.expressions2.expression.ValorBooleano;
+import lf1.plp.expressions2.expression.ValorInteiro;
 import lf1.plp.expressions1.util.Tipo;
 import lf1.plp.expressions2.expression.ExpUnaria;
 import lf1.plp.expressions2.expression.Expressao;
@@ -56,14 +58,36 @@ public class ExpEmSequencia extends ExpUnaria {
 	 */
 	public Valor avaliar(AmbienteExecucao amb)
 			throws VariavelNaoDeclaradaException, VariavelJaDeclaradaException {
-
+				
 				ValorLista lista = (ValorLista) this.getExp().avaliar(amb);
 				if (lista.isEmpty())
 					throw new ListaVaziaException();
-		
-				return (Valor) lista.getHead();
+				
+				return new ValorBooleano(lista.ehSequencial());
 	}
-
+	
+	// public boolean ehSequencial() {
+	// 	List<Expressao> lista;
+	// 	if (lista.isEmpty()) {
+	// 		return true;
+	// 	}
+		
+	// 	int primeiro = ((ValorInteiro)lista.get(0)).valor();
+	// 	return ehSequencialAux(lista.subList(1, lista.size()), primeiro, 1);
+	// }
+	
+	// private boolean ehSequencialAux(List<Expressao> lista, int primeiro, int indice) {
+	// 	if (lista.isEmpty()) {
+	// 		return true;
+	// 	}
+		
+	// 	int atual = ((ValorInteiro)lista.get(0)).valor();
+	// 	if (atual != indice + primeiro) {
+	// 		return false;
+	// 	}
+		
+	// 	return ehSequencialAux(lista.subList(1, lista.size()), primeiro, indice + 1);
+	// }
 	/**
 	 * Retorna o tipo da Express�o, ou seja, os tipos do elemento da lista, onde
 	 * � aplicado o Head
@@ -83,28 +107,6 @@ public class ExpEmSequencia extends ExpUnaria {
 			return ((TipoLista) tipoExp).getSubTipo();
 		return tipoExp;
 	}
-
-	public boolean ehSequencial(List<Integer> lista) {
-			if (lista.isEmpty()) {
-				return true;
-			}
-			
-			int primeiro = lista.get(0);
-			return ehSequencialAux(lista.subList(1, lista.size()), primeiro, 1);
-		}
-		
-	private boolean ehSequencialAux(List<Integer> lista, int primeiro, int indice) {
-			if (lista.isEmpty()) {
-				return true;
-			}
-			
-			int atual = lista.get(0);
-			if (atual != indice + primeiro) {
-				return false;
-			}
-			
-			return ehSequencialAux(lista.subList(1, lista.size()), primeiro, indice + 1);
-		}
 	
 	public ExpEmSequencia clone() {
 		return new ExpEmSequencia(this.exp.clone());

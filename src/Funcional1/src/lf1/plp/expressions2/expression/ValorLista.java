@@ -299,4 +299,27 @@ public class ValorLista extends ValorConcreto<List<Expressao>> {
 
 		return valor().equals(other.valor());
 	}
+
+	public boolean ehSequencial() {
+		if (this.valor().isEmpty()) {
+			return true;
+		}
+		
+		int primeiro = ((ValorInteiro)this.valor().get(0)).valor();
+		return ehSequencialAux(this.valor().subList(1, this.valor().size()), primeiro, 1);
+		
+	}
+	
+	private boolean ehSequencialAux(List<Expressao> lista, int primeiro, int indice) {
+		if (lista.isEmpty()) {
+			return true;
+		}
+		
+		int atual = ((ValorInteiro)lista.get(0)).valor();
+		if (atual != indice + primeiro) {
+			return false;
+		}
+		
+		return ehSequencialAux(lista.subList(1, lista.size()), primeiro, indice + 1);
+	}
 }
