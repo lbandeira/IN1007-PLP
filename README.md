@@ -69,7 +69,7 @@ IfThenElse ::= "if" Expressao "then" Expressao "else" Expressao
 
 ## Métodos adicionados
 
-### temParidade
+### temParidade (&&&)
 
 ```java
 	public boolean temParidade() {
@@ -82,7 +82,7 @@ IfThenElse ::= "if" Expressao "then" Expressao "else" Expressao
 	}
 ```
 
-### emSequencia
+### emSequencia (...)
 
 ```java
 	public boolean ehSequencial() {
@@ -108,7 +108,7 @@ IfThenElse ::= "if" Expressao "then" Expressao "else" Expressao
 		return ehSequencialAux(lista.subList(1, lista.size()), primeiro, indice + 1);
 	}
 ```
-### contagemSimilares
+### contagemSimilares (???)
 
 ```java
     public boolean contagemSimilares() {
