@@ -6,10 +6,13 @@ Este projeto tem como objetivo atender à disciplina de Paradigmas de Linguanges
 Este projeto estende as linguagens **Funcional 2** com operadores para manipulação de listas. As funções são as seguintes:
 - Verifica de sequencia: Dado uma lista de inteiro como entrada, a função verifica se a lista está em sequencia ou não.
 ```
-Input: [1,2,3,4,6,9]
+Input: [1,2,3,4,6]
 Output: true
 
-Input: [1,2,10,4,6,9]
+Input: [1,2,10,4,6]
+Output: false
+
+Input: [1,2,3,4,6,9]
 Output: false
 ```
 
@@ -26,6 +29,9 @@ Output: false
 ```
 Input: [1,1,2,2,3,3,4,4] , [1,1,2,2,5,5,4,4]
 Output: 6
+
+Input: [1,9,2,3,3,3,4,4] , [1,9,2,3,5,5,7,4]
+Output: 5
 ```
 
 ## BNF
