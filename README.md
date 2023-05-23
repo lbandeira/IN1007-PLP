@@ -40,7 +40,7 @@ ValorConcreto ::= ValorInteiro | ValorBooleano | ValorString | [ValorLista](src/
 
 ExpUnaria ::= "-" Expressao | "not" Expressao | "length" Expressao | ["..." Expressao](src/Funcional1/src/lf1/plp/functional1/expression/ExpEmSequencia.java) | ["&&&" Expressao](src/Funcional1/src/lf1/plp/functional1/expression/ExpTemParidade.java)
 
-ExpBinaria ::= Expressao "+" Expressao | Expressao "-" Expressao | Expressao "and" Expressao | Expressao "or" Expressao | Expressao "==" Expressao | Expressao "++" Expressao | Expressao "???" Expressao
+ExpBinaria ::= Expressao "+" Expressao | Expressao "-" Expressao | Expressao "and" Expressao | Expressao "or" Expressao | Expressao "==" Expressao | Expressao "++" Expressao | [Expressao "???" Expressao](src/Funcional1/src/lf1/plp/functional1/expression/)
 
  
 ExpDeclaracao ::= "let" DeclaracaoFuncional "in" Expressao
