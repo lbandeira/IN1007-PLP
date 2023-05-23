@@ -3,7 +3,7 @@ Este projeto tem como objetivo atender à disciplina de Paradigmas de Linguanges
 ***
 
 ## Contextualização
-Este projeto estende as linguagens **Funcional 2** com operadores para manipulação de listas. As funções são as seguintes:
+Este projeto estende as linguagens **Funcional 1** com operadores para manipulação de listas. As funções são as seguintes:
 - Verifica de sequencia: Dado uma lista de inteiro como entrada, a função verifica se a lista está em sequencia ou não.
 ```
 Input: [1,2,3,4,6]
