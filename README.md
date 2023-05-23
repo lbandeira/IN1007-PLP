@@ -71,8 +71,15 @@ IfThenElse ::= "if" Expressao "then" Expressao "else" Expressao
 
 ### temParidade
 
-```bash
-# colocar código
+```java
+	public boolean temParidade() {
+		for (int i = 1; i < this.valor().size(); i++) {
+			if (this.valor().get(i).equals(this.valor().get(i - 1))) {
+				return true;
+			}
+		}
+		return false;
+	}
 ```
 
 ### emSequencia
