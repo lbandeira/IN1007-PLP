@@ -29,7 +29,7 @@ Output: 6
 ```
 
 ## BNF
-```
+
 Programa ::= Expressao
 
 Expressao ::= Valor | ExpUnaria | ExpBinaria | ExpDeclaracao | Id | Aplicacao | IfThenElse
@@ -38,9 +38,9 @@ Valor ::= ValorConcreto
 
 ValorConcreto ::= ValorInteiro | ValorBooleano | ValorString | [ValorLista](src/Funcional1/src/lf1/plp/expressions2/expression/ValorLista.java)
 
-ExpUnaria ::= "-" Expressao | "not" Expressao | "length" Expressao | ["ExpEmSequencia" Expressao](src/Funcional1/src/lf1/plp/functional1/expression/ExpEmSequencia.java) | ["ExpTemParidade" Expressao](src/Funcional1/src/lf1/plp/functional1/expression/ExpTemParidade.java)
+ExpUnaria ::= "-" Expressao | "not" Expressao | "length" Expressao | ["..." Expressao](src/Funcional1/src/lf1/plp/functional1/expression/ExpEmSequencia.java) | ["&&&" Expressao](src/Funcional1/src/lf1/plp/functional1/expression/ExpTemParidade.java)
 
-ExpBinaria ::= Expressao "+" Expressao | Expressao "-" Expressao | Expressao "and" Expressao | Expressao "or" Expressao | Expressao "==" Expressao | Expressao "++" Expressao | Expressao "contaSimilares" Expressao
+ExpBinaria ::= Expressao "+" Expressao | Expressao "-" Expressao | Expressao "and" Expressao | Expressao "or" Expressao | Expressao "==" Expressao | Expressao "++" Expressao | Expressao "???" Expressao
 
  
 ExpDeclaracao ::= "let" DeclaracaoFuncional "in" Expressao
@@ -60,7 +60,6 @@ Aplicacao:= Id"(" ListExp ")"
 ListExp ::= Expressao  |  Expressao, ListExp
 
 IfThenElse ::= "if" Expressao "then" Expressao "else" Expressao
-```
 
 ## Métodos adicionados
 
