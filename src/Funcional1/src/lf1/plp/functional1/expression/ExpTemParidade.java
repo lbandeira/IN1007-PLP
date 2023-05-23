@@ -1,5 +1,10 @@
 package lf1.plp.functional1.expression;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import lf1.plp.expressions2.expression.ValorBooleano;
+import lf1.plp.expressions2.expression.ValorInteiro;
 import lf1.plp.expressions1.util.Tipo;
 import lf1.plp.expressions2.expression.ExpUnaria;
 import lf1.plp.expressions2.expression.Expressao;
@@ -15,6 +20,8 @@ import lf1.plp.functional1.util.TipoLista;
 
 public class ExpTemParidade extends ExpUnaria {
 
+	private Expressao exp;
+
 	/**
 	 * Cria uma inst�ncia de ExpHead
 	 * 
@@ -22,7 +29,7 @@ public class ExpTemParidade extends ExpUnaria {
 	 *            express�o onde ser� aplicada o Head
 	 */
 	public ExpTemParidade(Expressao exp) {
-		super(exp, "head");
+		super(exp, "&&&");
 	}
 
 	/**
@@ -40,7 +47,7 @@ public class ExpTemParidade extends ExpUnaria {
 		Tipo tipoExp = getExp().getTipo(amb);
 		return tipoExp.eIgual(new TipoLista());
 	}
-
+	//checa(v) {if (this.head > v) {this.tail.checa(this.head}} else false
 	/**
 	 * Avalia a express�o Head at� obter seus valores.
 	 * 
@@ -51,14 +58,14 @@ public class ExpTemParidade extends ExpUnaria {
 	 */
 	public Valor avaliar(AmbienteExecucao amb)
 			throws VariavelNaoDeclaradaException, VariavelJaDeclaradaException {
-
-		ValorLista lista = (ValorLista) this.getExp().avaliar(amb);
-		if (lista.isEmpty())
-			throw new ListaVaziaException();
-
-		return (Valor) lista.getHead();
+				
+				ValorLista lista = (ValorLista) this.getExp().avaliar(amb);
+				if (lista.isEmpty())
+					throw new ListaVaziaException();
+				
+				return new ValorBooleano(lista.temParidade());
 	}
-
+	
 	/**
 	 * Retorna o tipo da Express�o, ou seja, os tipos do elemento da lista, onde
 	 * � aplicado o Head
@@ -76,7 +83,6 @@ public class ExpTemParidade extends ExpUnaria {
 
 		if (tipoExp instanceof TipoLista)
 			return ((TipoLista) tipoExp).getSubTipo();
-
 		return tipoExp;
 	}
 	

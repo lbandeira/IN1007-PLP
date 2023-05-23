@@ -322,4 +322,13 @@ public class ValorLista extends ValorConcreto<List<Expressao>> {
 		
 		return ehSequencialAux(lista.subList(1, lista.size()), primeiro, indice + 1);
 	}
+
+	public boolean temParidade() {
+		for (int i = 1; i < this.valor().size(); i++) {
+			if (this.valor().get(i).equals(this.valor().get(i - 1))) {
+				return true;
+			}
+		}
+		return false;
+	}
 }

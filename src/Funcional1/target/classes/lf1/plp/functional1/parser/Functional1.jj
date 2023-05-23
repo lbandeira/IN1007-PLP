@@ -19,6 +19,7 @@ import lf1.plp.functional1.expression.ExpDeclaracao;
 import lf1.plp.functional1.expression.IfThenElse;
 import lf1.plp.functional1.expression.Aplicacao;
 import lf1.plp.functional1.expression.ExpEmSequencia;
+import lf1.plp.functional1.expression.ExpTemParidade;
 import java.util.*;
 import lf1.plp.expressions2.expression.ExpAnd;
 import lf1.plp.expressions2.expression.ExpConcat;
@@ -437,6 +438,27 @@ Expressao PExpEmSequencia() :
   }
 }
 
+Expressao PExpTemParidade() :
+{
+  Expressao retorno;
+}
+{
+  < EM_PAR > retorno = PExpPrimaria()
+  {
+    return new ExpTemParidade(retorno);
+  }
+}
+Expressao PExpContagemSimilares() :
+{
+  Expressao retorno;
+}
+{
+  < CHECK_SIMILAR > retorno = PExpPrimaria()
+  {
+    return new ExpContagemSimilares(retorno);
+  }
+}
+
 List PListaId() :
 {
   List < Id > retorno = null;
@@ -597,6 +619,10 @@ Expressao PExpUnaria() :
     retorno = PExpPrimaria()  
   | LOOKAHEAD(PExpEmSequencia())
     retorno = PExpEmSequencia()
+  | LOOKAHEAD(PExpTemParidade())
+    retorno = PExpTemParidade()
+  | LOOKAHEAD(PExpContagemSimilares())
+    retorno = PExpContagemSimilares()
   )
   {
     //System.out.println("ExpressaoUnaria=" + retorno);
