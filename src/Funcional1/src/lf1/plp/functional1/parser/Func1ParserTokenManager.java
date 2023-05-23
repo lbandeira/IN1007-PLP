@@ -13,7 +13,6 @@ import lf1.plp.functional1.expression.IfThenElse;
 import lf1.plp.functional1.expression.Aplicacao;
 import lf1.plp.functional1.expression.ExpEmSequencia;
 import lf1.plp.functional1.expression.ExpTemParidade;
-import lf1.plp.functional1.expression.ExpContagemSimilares;
 import java.util.*;
 import lf1.plp.expressions2.expression.ExpAnd;
 import lf1.plp.expressions2.expression.ExpConcat;
