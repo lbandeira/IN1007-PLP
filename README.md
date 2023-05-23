@@ -36,9 +36,9 @@ Expressao ::= Valor | ExpUnaria | ExpBinaria | ExpDeclaracao | Id | Aplicacao | 
  
 Valor ::= ValorConcreto 
 
-ValorConcreto ::= ValorInteiro | ValorBooleano | ValorString | ValorLista
+ValorConcreto ::= ValorInteiro | ValorBooleano | ValorString | [ValorLista](src/Funcional1/src/lf1/plp/expressions2/expression/ValorLista.java)
 
-ExpUnaria ::= "-" Expressao | "not" Expressao | "length" Expressao | "estaEmSequencia" Expressao | "temParidade" Expressao
+ExpUnaria ::= "-" Expressao | "not" Expressao | "length" Expressao | ["ExpEmSequencia" Expressao](src/Funcional1/src/lf1/plp/functional1/expression/ExpEmSequencia.java) | ["ExpTemParidade" Expressao](src/Funcional1/src/lf1/plp/functional1/expression/ExpTemParidade.java)
 
 ExpBinaria ::= Expressao "+" Expressao | Expressao "-" Expressao | Expressao "and" Expressao | Expressao "or" Expressao | Expressao "==" Expressao | Expressao "++" Expressao | Expressao "contaSimilares" Expressao
 
@@ -62,15 +62,60 @@ ListExp ::= Expressao  |  Expressao, ListExp
 IfThenElse ::= "if" Expressao "then" Expressao "else" Expressao
 ```
 
+## Métodos adicionados
 
+### temParidade
 
-| < HEAD : "head" >
-| < TAIL : "tail" >
+```bash
+# colocar código
+```
 
-| <EM_SEQ: "...">
-| <EM_PAR: "&&&">
-| <CHECK_SIMILAR: "???">
+### emSequencia
 
+```java
+	public boolean ehSequencial() {
+		if (this.valor().isEmpty()) {
+			return true;
+		}
+		
+		int primeiro = ((ValorInteiro)this.valor().get(0)).valor();
+		return ehSequencialAux(this.valor().subList(1, this.valor().size()), primeiro, 1);
+		
+	}
+	
+	private boolean ehSequencialAux(List<Expressao> lista, int primeiro, int indice) {
+		if (lista.isEmpty()) {
+			return true;
+		}
+		
+		int atual = ((ValorInteiro)lista.get(0)).valor();
+		if (atual != indice + primeiro) {
+			return false;
+		}
+		
+		return ehSequencialAux(lista.subList(1, lista.size()), primeiro, indice + 1);
+	}
+```
+### contagemSimilares
+
+```java
+    public boolean contagemSimilares() {
+        //pegar os parametros, que sao a lista 1 e lista 2
+        if (lista1.size() != lista2.size()) {
+            return false;
+        }
+        
+        for (int i = 0; i < lista1.size(); i++) {
+            if (!lista1.get(i).equals(lista2.get(i))) {
+                return false;
+            }
+        }
+        
+        return true;
+    }
+}
+
+```
 ## Preparação de ambiente
 
 * Instalar Maven
@@ -84,11 +129,17 @@ sudo apt install maven -y
 ```bash
 sudo apt install openjdk-11-jdk
 ```
+## Compilação
+
+* Compilar .jj
+```bash
+java -cp ../../../../../../../javacc-7.0.10.jar javacc Functional1.jj
+```
 
 ## Execução
 
 ```bash
-cd Funcional2
+cd Funcional1
 mvn clean generate-sources compile exec:java
 ```
 
@@ -106,11 +157,6 @@ mvn package
 # Acessar a pasta ./Applet/target/ e executar no terminal:
 java -jar Funcional2-0.0.1.jar
 ```
-
-java -cp ../../../../../../../javacc-7.0.10.jar javacc Functional1.jj
-
-mvn clean generate-sources compile exec:java
-mvn package
 
 ***
 ## Equipe
